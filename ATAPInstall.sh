@@ -1,4 +1,5 @@
 #!/bin/bash
+#Author: Kaiden Mix
 #Installation Script for ATAP Installer on a Linux Mint System
 #Set Colors
 RED='\033[0;31m'
