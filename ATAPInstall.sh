@@ -19,7 +19,7 @@ DIR="/root/Documents"
 
 # Check if the directory exists
 if [ ! -d "$DIR" ]; then
-    echo "${YELLOW}Documents folder does not exist. Creating it...${RESET}"
+    echo -e "${YELLOW}Documents folder does not exist. Creating it...${RESET}"
     sudo mkdir -p "$DIR"
 else
     echo -e "${GREEN}Documents folder already exists.${RESET}"
