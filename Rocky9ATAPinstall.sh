@@ -33,6 +33,7 @@ sudo dnf install https://github.com/PowerShell/PowerShell/releases/download/v7.4
 echo -e "${YELLOW}Starting PowerShell to install the ATAPAuditor module...${RESET}"
 sudo pwsh -Command "Install-Module -Name ATAPAuditor -Force; exit" 
 echo -e "${GREEN}PowerShell and ATAPAuditor installation complete!${RESET}"
+#Runs a report for RHEL9
 echo -e "${YELLOW}Running ATAP for Red Hat Enterprise Linux 9${RESET}"
 sudo pwsh -Command "Save-ATAPHtmlReport -ReportName 'Red Hat Enterprise Linux 9'"
 
