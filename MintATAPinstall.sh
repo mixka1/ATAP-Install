@@ -37,6 +37,7 @@ dpkg -i powershell_7.4.5-1.deb_amd64.deb
 echo -e "${YELLOW}Starting PowerShell to install the ATAPAuditor module...${RESET}"
 sudo pwsh -Command "Install-Module -Name ATAPAuditor -Force; exit" 
 echo -e "${GREEN}PowerShell and ATAPAuditor installation complete!${RESET}"
+#Runs a report for Ubuntu
 echo -e "${YELLOW}Running ATAP for Ubuntu 22.04${RESET}"
 sudo pwsh -Command "Save-ATAPHtmlReport -ReportName 'Ubuntu 22.04'"
 
