@@ -123,12 +123,19 @@ find_sudo_users() {
 # Function to compare users in passwd and group files
 compare_passwd_group() {
     echo -e "${YELLOW}Users in /etc/passwd but not in /etc/group:${RESET}"
+    
+    # Read users from /etc/passwd and /etc/group
     local passwd_users=$(cut -d: -f1 /etc/passwd)
     local group_users=$(cut -d: -f1 /etc/group)
+    
+    # Ensure IFS is set to newline to properly handle user names
     local IFS=$'\n'
-    local passwd_array=($passwd_users)
-    local group_array=($group_users)
+    
+    # Correctly split the strings into arrays
+    local passwd_array=($(echo "$passwd_users"))
+    local group_array=($(echo "$group_users"))
 
+    # Compare users in /etc/passwd but not in /etc/group
     for user in "${passwd_array[@]}"; do
         if ! [[ " ${group_array[*]} " =~ " $user " ]]; then
             echo -e "${RED}$user${RESET}"
