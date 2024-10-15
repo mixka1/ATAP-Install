@@ -154,7 +154,10 @@ check_ipv6() {
 # Function to list users with /bin/bash as their shell
 list_bash_users() {
     echo -e "${YELLOW}Users with /bin/bash as their shell:${RESET}"
-    awk -F: '$7 == "/usr/bin/bash" {print $1}' /etc/passwd
+    if [ "$Mint" -eq 1 ]; then
+        awk -F: '$7 == "/usr/bin/bash" {print $1}' /etc/passwd
+    else
+        awk -F: '$7 == "/bin/bash" {print $1}' /etc/passwd
 }
 
 # Function to check NOPASSWD and !authenticate entries in /etc/sudoers
